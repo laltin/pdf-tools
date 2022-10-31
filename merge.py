@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import pyPdf
+import PyPDF2
 import sys
 
 
@@ -9,10 +9,10 @@ def merge (input_files, output_file):
     merges given input pdf files into single pdf file
     """
 
-    output = pyPdf.PdfFileWriter()
+    output = PyPDF2.PdfFileWriter()
     
     for input_file in input_files:
-        input = pyPdf.PdfFileReader( open(input_file, "rb") )
+        input = PyPDF2.PdfFileReader( open(input_file, "rb") )
         
         for i in range(input.numPages):
             output.addPage(input.getPage(i))
@@ -26,7 +26,7 @@ def merge (input_files, output_file):
 def main (args):
     # at least 3 arguments are needed: program name itself, input, output
     if len(args) < 3:
-        print "Usage: %s input1... output" % args[0]
+        print("Usage: %s input1... output" % args[0])
         return
     
     input_files = args[1:-1]
