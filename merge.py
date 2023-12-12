@@ -51,7 +51,11 @@ def main(args):
 
     # at least 3 arguments are needed: program name itself, input, output
     if len(args) < 3:
-        print("Usage: %s input1... output" % args[0])
+        print("Usage: Put all PDFs inside \"input/\" directory.")
+        print("       If you want to rotate pages of a PDF file, append \"-rotate-{angle}\" to file name.")
+        print("       Ex: scan-rotate-180.pdf will be rotated 180 degrees before merge")
+        print("")
+        print("Command line usage: %s input1... output" % args[0])
         return
     
     input_files = args[1:-1]
