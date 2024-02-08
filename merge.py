@@ -17,11 +17,11 @@ def merge(input_files, output_file):
         input = PyPDF2.PdfFileReader( open(input_file, "rb") )
 
         rotate = 0
-        if input_file.endswith('-rotate-90.pdf'):
+        if input_file.lower().endswith('-rotate-90.pdf'):
             rotate = 90
-        elif input_file.endswith('-rotate-180.pdf'):
+        elif input_file.lower().endswith('-rotate-180.pdf'):
             rotate = 180
-        elif input_file.endswith('-rotate-270.pdf'):
+        elif input_file.lower().endswith('-rotate-270.pdf'):
             rotate = 270
         
         for i in range(input.numPages):
@@ -43,7 +43,7 @@ def main(args):
         input_dir = os.path.join(root_dir, 'input')
 
         if os.path.isdir(input_dir):
-            pdfs = [f for f in os.listdir(input_dir) if f.endswith('.pdf')]
+            pdfs = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
             args.extend([os.path.join(input_dir, f) for f in pdfs])
 
         output_filename = "output-%s.pdf" % int(time.time())
