@@ -14,7 +14,7 @@ def merge(input_files, output_file):
     output = PyPDF2.PdfFileWriter()
     
     for input_file in input_files:
-        input = PyPDF2.PdfFileReader( open(input_file, "rb") )
+        input = PyPDF2.PdfFileReader( open(input_file, "rb"), strict=False )
 
         rotate = 0
         if input_file.lower().endswith('-rotate-90.pdf'):
